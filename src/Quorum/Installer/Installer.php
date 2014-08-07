@@ -12,7 +12,7 @@ class Installer extends LibraryInstaller {
 	 * @var array
 	 */
 	private $supportedTypes = array(
-		'capstone' => 'QuorumInstaller',
+		'quorum' => 'QuorumInstaller',
 	);
 
 	/**
@@ -28,7 +28,7 @@ class Installer extends LibraryInstaller {
 			);
 		}
 
-		$class     = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
+		$class     = 'Quorum\\Installer\\' . $this->supportedTypes[$frameworkType];
 		$installer = new $class($package, $this->composer);
 
 		return $installer->getInstallPath($package, $frameworkType);
@@ -89,7 +89,7 @@ class Installer extends LibraryInstaller {
 	protected function getLocationPattern( $frameworkType ) {
 		$pattern = false;
 		if( !empty($this->supportedTypes[$frameworkType]) ) {
-			$frameworkClass = 'Composer\\Installers\\' . $this->supportedTypes[$frameworkType];
+			$frameworkClass = 'Quorum\\Installer\\' . $this->supportedTypes[$frameworkType];
 			/** @var BaseInstaller $framework */
 			$framework = new $frameworkClass;
 			$locations = array_keys($framework->getLocations());
