@@ -1,0 +1,22 @@
+{
+    "name": "quorum/installer",
+    "type": "composer-installer",
+    "license": "MIT",
+    "description": "The Quorum Installer",
+    "autoload": {
+        "psr-0": { "Quorum\\Installer\\": "src/" }
+    },
+    "extra": {
+        "class": "Quorum\\Installer\\Installer",
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "replace": {
+        "shama/baton": "*"
+    },
+    "require-dev": {
+        "composer/composer": "1.0.*@dev",
+        "phpunit/phpunit": "3.7.*"
+    }
+}
